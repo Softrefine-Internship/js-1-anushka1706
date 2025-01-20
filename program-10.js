@@ -7,10 +7,12 @@
 
 // Expected Output: [4, 5, 8, 10, 12, 13]
 const sumOfArr = (arr1, arr2) => {
-  const n = Math.max(arr1.length, arr2.length);
+  const len1 = arr1.length;
+  const len2 = arr2.length;
+  const max = len1 > len2 ? len1 : len2;
   let sum = 0;
   const result = [];
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < max; i++) {
     const val1 = arr1[i] || 0;
     const val2 = arr2[i] || 0;
     result.push(val1 + val2);

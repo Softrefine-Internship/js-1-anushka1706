@@ -3,19 +3,22 @@
 // Sample input : [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
 // Expected Output : console.log(a, "5 times")
 const countFreq = (arr) => {
-  const freq = new Map();
-  arr.forEach((item) => {
-    freq.has(item) ? freq.set(item, freq.get(item) + 1) : freq.set(item, 1);
+  const freq = {};
+  arr.forEach((element) => {
+    if (freq[element] !== undefined) {
+      freq[element] += 1;
+    } else {
+      freq[element] = 1;
+    }
   });
-  let max = -Infinity;
+  let maxFreq = 0;
   let item;
-  console.log(freq)
-  for (const [key, value] of freq) {
-    if (value > max) {
-      max = value;
-      item = key;
+  for (const i in freq) {
+    if (freq[i] > maxFreq) {
+      maxFreq = freq[i];
+      item = i;
     }
   }
-  console.log(item, `${max} times`);
+  return console.log(item,`${maxFreq} times`)
 };
 countFreq([3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3]);

@@ -14,24 +14,33 @@
 //  { title: 'Java', author: 'James' },
 //  { title: 'Python', author: 'Guido' }
 // ]
-const removeDuplicates = (obj) => {
+const removeDuplicates = (arr) => {
   const unique = [];
-  obj.forEach((element) => {
-    const key = JSON.stringify(element);
-    if (!unique.includes(key)) {
-      unique.push(key);
-    }
-  });
-  const result = unique.map((ele) => {
-    return JSON.parse(ele);
-  });
 
-  return result;
+  for (let i = 0; i < arr.length; i++) {
+    let isDuplicate = false;
+
+    for (let j = 0; j < unique.length; j++) {
+      if (
+        arr[i].title === unique[j].title &&
+        arr[i].author === unique[j].author
+      ) {
+        isDuplicate = true;
+        break;
+      }
+    }
+    if (!isDuplicate) {
+      unique.push(arr[i]);
+    }
+  }
+  return unique;
 };
-const array = [
+
+const arr = [
   { title: "C++", author: "Bjarne" },
   { title: "Java", author: "James" },
   { title: "Python", author: "Guido" },
   { title: "Java", author: "James" },
 ];
-console.log(removeDuplicates(array));
+
+console.log(removeDuplicates(arr));
