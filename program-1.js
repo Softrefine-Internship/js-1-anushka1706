@@ -2,9 +2,6 @@
 function cloneArr(arr) {
   const clonedArray = [];
   for (const i of arr) {
-    if (i.length > 1) {
-      cloneArr(i);
-    }
     clonedArray.push(i);
   }
   return clonedArray;
