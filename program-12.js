@@ -49,6 +49,6 @@ const diffArr = (arr1, arr2) => {
 
   return sortAsc(c);
 };
-const arr1 = [1, 2, 3];
-const arr2 = [100, 2, 1, 10];
+const arr1 = [1, 2, 3, 4];
+const arr2 = [3, 100, 2, 1, 10];
 console.log(diffArr(arr1, arr2));

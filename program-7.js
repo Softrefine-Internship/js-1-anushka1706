@@ -21,14 +21,20 @@ const removeDuplicates = (arr) => {
     let isDuplicate = false;
 
     for (let j = 0; j < unique.length; j++) {
-      if (
-        arr[i].title === unique[j].title &&
-        arr[i].author === unique[j].author
-      ) {
+      let isSame = true;
+
+      for (const key in arr[i]) {
+        if (arr[i][key] !== unique[j][key]) {
+          isSame = false;
+          break;
+        }
+      }
+      if (isSame) {
         isDuplicate = true;
         break;
       }
     }
+
     if (!isDuplicate) {
       unique.push(arr[i]);
     }

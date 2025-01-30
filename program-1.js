@@ -10,3 +10,6 @@ const arr = [2, 5, [5, 77], 5, 7];
 const arr1 = [2, 5, [5, [77, 88]], 5, 7];
 console.log(cloneArr(arr));
 console.log(cloneArr(arr1));
+
+const ar = [9,7]
+// console.log(ar[3])

@@ -24,6 +24,15 @@
 //   }
 //   return c;
 // };
+const removeDuplicate = (arr1) => {
+  const newArr = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr1[i + 1]) {
+      newArr.push(arr1[i]);
+    }
+  }
+  return newArr;
+};
 const sortAsc = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
@@ -35,7 +44,7 @@ const sortAsc = (arr) => {
       }
     }
   }
-  return arr;
+  return removeDuplicate(arr);
 };
 const union = (arr1, arr2) => {
   const c = [];
@@ -59,5 +68,5 @@ const union = (arr1, arr2) => {
 };
 
 const arr1 = [1, 2, 3];
-const arr2 = [100, 2, 1, 10];
+const arr2 = [3, 100, 100, 3, 2, 1, 10];
 console.log(union(arr1, arr2));
