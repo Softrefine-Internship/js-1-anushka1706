@@ -18,22 +18,30 @@ where 0 means empty and 1 means not empty, and an integer n,
 const planted = (arr, n) => {
   if (arr.length === 0) return false;
   if (arr.length === 1) return arr[0] === 0 && n === 1;
+
   let emptySpace = 0;
+
   for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 1 && arr[i - 1] === undefined && arr[i + 1] === undefined) {
+      continue;
+    }
+
     if (
-      (arr[i] === 0 &&
-        (arr[i - 1] === 0 || arr[i - 1] === undefined) &&
-        arr[i + 1] === 0) ||
-      arr[i + 1] === undefined
+      arr[i] === 0 &&
+      (arr[i - 1] === 0 || arr[i - 1] === undefined) &&
+      (arr[i + 1] === 0 || arr[i + 1] === undefined)
     ) {
       emptySpace++;
       arr[i] = 1;
     }
   }
+
   return emptySpace >= n;
 };
-const flowerbed1 = [0, 0, 0, 0, 1];
+
+const flowerbed1 = [0, 0, 1, 0, 1];
 const flowerbed2 = [1, 0, 1, 0, 0];
-console.log(planted(flowerbed1, 3));
+console.log(planted(flowerbed1, 2));
 console.log(planted(flowerbed2, 2));
 console.log(planted([0], 1));
+console.log(planted([1], 1));

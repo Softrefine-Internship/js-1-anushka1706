@@ -25,6 +25,7 @@ const removeDuplicates = (arr) => {
 
       for (const key in arr[i]) {
         if (arr[i][key] !== unique[j][key]) {
+          console.log(arr[i][key]);
           isSame = false;
           break;
         }
@@ -34,19 +35,17 @@ const removeDuplicates = (arr) => {
         break;
       }
     }
-
     if (!isDuplicate) {
       unique.push(arr[i]);
     }
   }
   return unique;
 };
-
 const arr = [
-  { title: "C++", author: "Bjarne" },
-  { title: "Java", author: "James" },
-  { title: "Python", author: "Guido" },
-  { title: "Java", author: "James" },
+  { title: "C++", author: "Bjarne", name: "anushka"},
+  { title: "Java", author: "James", name: "abc" },
+  { title: "Python", author: "Guido", name: "anushka" },
+  { title: "Java", author: "James", name: "abc" },
 ];
 
 console.log(removeDuplicates(arr));

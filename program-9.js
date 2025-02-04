@@ -4,6 +4,7 @@
 // Expected Output : console.log(a, "5 times")
 const countFreq = (arr) => {
   const freq = {};
+  const max = {};
   arr.forEach((element) => {
     if (freq[element] !== undefined) {
       freq[element] += 1;
@@ -12,13 +13,16 @@ const countFreq = (arr) => {
     }
   });
   let maxFreq = 0;
-  let item;
   for (const i in freq) {
-    if (freq[i] > maxFreq) {
+    if (freq[i] >= maxFreq) {
       maxFreq = freq[i];
-      item = i;
     }
   }
-  return console.log(item,`${maxFreq} times`)
+  for (const key in freq) {
+    if (freq[key] === maxFreq) {
+      max[key] = maxFreq;
+      console.log(`${key} is ${maxFreq} times`)
+    }
+  }
 };
-countFreq([3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3]);
+countFreq([3,3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3]);
