@@ -46,7 +46,6 @@ const diffArr = (arr1, arr2) => {
       c.push(arr2[i]);
     }
   }
-
   return sortAsc(c);
 };
 const arr1 = [1, 2, 3, 4];
